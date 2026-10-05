@@ -28,6 +28,58 @@ public class StatistikNilai {
 
         } while (true);
 
+        if (daftar.isEmpty()) {
+            System.out.println();
+            System.out.println("Tidak ada nilai yang tersimpan.");
+            input.close();
+            return;
+        }
+
+        System.out.println();
+        System.out.println("Nilai tersimpan : " + daftar);
+
+        int jumlah = daftar.size();
+
+        System.out.println("Jumlah         : " + jumlah);
+
+        int total = 0;
+
+        for (int i = 0; i < daftar.size(); i++) {
+            total += daftar.get(i);
+        }
+
+        double rataRata = (double) total / jumlah;
+
+        System.out.printf("Rata-rata      : %.2f%n", rataRata);
+
+        int tertinggi = daftar.get(0);
+        int terendah = daftar.get(0);
+
+        for (int i = 1; i < daftar.size(); i++) {
+            int nilaiSekarang = daftar.get(i);
+
+            if (nilaiSekarang > tertinggi) {
+                tertinggi = nilaiSekarang;
+            }
+
+            if (nilaiSekarang < terendah) {
+                terendah = nilaiSekarang;
+            }
+        }
+
+        System.out.println("Tertinggi      : " + tertinggi);
+        System.out.println("Terendah       : " + terendah);
+
+        int diAtasRataRata = 0;
+
+        for (int i = 0; i < daftar.size(); i++) {
+            if (daftar.get(i) > rataRata) {
+                diAtasRataRata++;
+            }
+        }
+
+        System.out.println("Di atas rata2  : " + diAtasRataRata + " orang");
+
 
     }
 }
