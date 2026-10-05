@@ -80,6 +80,45 @@ public class StatistikNilai {
 
         System.out.println("Di atas rata2  : " + diAtasRataRata + " orang");
 
+        int[] jumlahGrade = new int[5];
 
+        for (int i = 0; i < daftar.size(); i++) {
+            int nilaiSekarang = daftar.get(i);
+
+            if (nilaiSekarang >= 80) {
+                jumlahGrade[0]++;
+            } else if (nilaiSekarang >= 70) {
+                jumlahGrade[1]++;
+            } else if (nilaiSekarang >= 60) {
+                jumlahGrade[2]++;
+            } else if (nilaiSekarang >= 50) {
+                jumlahGrade[3]++;
+            } else {
+                jumlahGrade[4]++;
+            }
+        }
+
+        System.out.print("Distribusi     : ");
+
+        char[] grade = {'A', 'B', 'C', 'D', 'E'};
+
+        for (int i = 0; i < jumlahGrade.length; i++) {
+            System.out.print(grade[i] + "=" + jumlahGrade[i]);
+
+            if (i < jumlahGrade.length - 1) {
+                System.out.print(" ");
+            }
+        }
+
+        System.out.println();
+
+        ArrayList<Integer> terurut = new ArrayList<>(daftar);
+        Collections.sort(terurut);
+
+        System.out.println("Terurut        : " + terurut);
+
+        System.out.println("Urutan asli    : " + daftar);
+
+        input.close();
     }
 }
